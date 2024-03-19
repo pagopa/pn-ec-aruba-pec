@@ -1,4 +1,4 @@
-package it.pagopa.pn.ec;
+package it.pagopa.pn.library.pec;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

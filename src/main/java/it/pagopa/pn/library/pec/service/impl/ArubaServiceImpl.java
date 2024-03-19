@@ -6,7 +6,6 @@ import it.pagopa.pn.library.pec.exception.aruba.ArubaCallException;
 import it.pagopa.pn.library.pec.pojo.PnGetMessagesResponse;
 import it.pagopa.pn.library.pec.pojo.PnListOfMessages;
 import it.pagopa.pn.library.pec.service.ArubaService;
-import it.pagopa.pn.library.pec.utils.EmailUtils;
 import it.pec.bridgews.*;
 import lombok.CustomLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import reactor.core.publisher.MonoSink;
 
 import java.util.List;
 
-import static it.pagopa.pn.library.pec.utils.LogUtils.*;
+import static it.pagopa.pn.library.pec.utils.ArubaPecLogUtils.*;
 
 
 @Component
@@ -29,6 +28,8 @@ public class ArubaServiceImpl implements ArubaService {
     private final PecImapBridge pecImapBridgeClient;
 
     private static final int MESSAGE_NOT_FOUND_ERR_CODE = 99;
+
+    private static final String C_DATA_TAG = "<![CDATA[%s]]>";
 
 
     @Value("${aruba.pec.username}")
@@ -97,7 +98,7 @@ public class ArubaServiceImpl implements ArubaService {
     @Override
     public Mono<String> sendMail(byte[] message) {
         SendMail sendMail = new SendMail();
-        sendMail.setData(EmailUtils.getMimeMessageInCDATATag(message));
+        sendMail.setData(getMimeMessageInCDATATag(message));
         sendMail.setUser(pecUsername);
         sendMail.setPass(pecPassword);
         var mdcContextMap = MDCUtils.retrieveMDCContextMap();
@@ -193,7 +194,9 @@ public class ArubaServiceImpl implements ArubaService {
         Thread.currentThread().interrupt();
     }
 
-
+    private static String getMimeMessageInCDATATag(byte[] fileBytes) {
+        return String.format(C_DATA_TAG, new String(fileBytes));
+    }
 
 
 
