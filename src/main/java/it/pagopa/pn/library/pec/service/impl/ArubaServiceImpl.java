@@ -16,7 +16,7 @@ import reactor.core.publisher.MonoSink;
 
 import java.util.List;
 
-import static it.pagopa.pn.library.pec.utils.ArubaPecLogUtils.*;
+import static it.pagopa.pn.library.pec.utils.ArubaPecUtils.*;
 
 
 @Component

@@ -4,8 +4,8 @@ package it.pagopa.pn.library.pec.model.pojo;
 import it.pagopa.pn.library.pec.pojo.PnPostacert;
 import lombok.CustomLog;
 
-import static it.pagopa.pn.ec.scaricamentoesitipec.constant.PostacertTypes.ERRORE_CONSEGNA;
-import static it.pagopa.pn.ec.scaricamentoesitipec.constant.PostacertTypes.PREAVVISO_ERRORE_CONSEGNA;
+import static it.pagopa.pn.library.pec.utils.ArubaPecUtils.ERRORE_CONSEGNA;
+import static it.pagopa.pn.library.pec.utils.ArubaPecUtils.PREAVVISO_ERRORE_CONSEGNA;
 
 @CustomLog
 public class ArubaPostacert extends PnPostacert {
@@ -24,7 +24,9 @@ public class ArubaPostacert extends PnPostacert {
     }
 
 
-    public ArubaPostacert(IPostacert postacert) {
+    public ArubaPostacert(Postacert postacert) {
+
         super(postacert);
+        log.debug("ArubaPostacert constructor called with postacert: " + postacert);
     }
 }

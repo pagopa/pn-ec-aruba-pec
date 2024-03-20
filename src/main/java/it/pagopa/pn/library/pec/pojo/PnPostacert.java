@@ -7,7 +7,7 @@ import it.pagopa.pn.library.pec.model.pojo.Postacert;
 
 public class PnPostacert extends Postacert implements IPostacert {
 
-    public PnPostacert(IPostacert postacert) {
+    public PnPostacert(Postacert postacert) {
         this.dati = postacert.getDati();
         this.errore = postacert.getErrore();
         this.intestazione = postacert.getIntestazione();
