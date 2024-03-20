@@ -27,6 +27,5 @@ public class ArubaPostacert extends PnPostacert {
     public ArubaPostacert(Postacert postacert) {
 
         super(postacert);
-        log.debug("ArubaPostacert constructor called with postacert: " + postacert);
     }
 }
