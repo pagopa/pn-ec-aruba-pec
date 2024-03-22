@@ -17,9 +17,7 @@ public class ArubaPecUtils {
     public static final String ARUBA_GET_MESSAGE_COUNT = "ArubaService.getMessageCount()";
     public static final String ARUBA_DELETE_MAIL = "ArubaService.deleteMail()";
     public static final String ARUBA_GET_UNREAD_MESSAGES = "ArubaService.getUnreadMessages()";
-
-    public static final String ERRORE_CONSEGNA = "errore-consegna";
-    public static final String PREAVVISO_ERRORE_CONSEGNA = "preavviso-errore-consegna";
+    public static final String INITIALIZING_ARUBA_PROXY_CLIENT = "Initializing Aruba proxy client for '{}' : ArubaServerAddress : {}, EndpointName : {}, ServiceName : {}";
 
 
 }
